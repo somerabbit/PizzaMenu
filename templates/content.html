@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/add" method="post">
+                        <h1> Manage Topping</h1>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="topping" placeholder="Topping" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="description" cols="100"
+                                      placeholder="Add a Description" required></textarea>
+                        </div>
+                        <button class="btn btn-primary" type="submit">
+                            Add
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Topping</th>
+                    <th>Description</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for entry in entries %}
+                <tr>
+                    <td>{{ entry.id }}</td>
+                    <td><strong>{{ entry.topping }}</strong></td>
+                    <td>{{ entry.description }}</td>
+                    <td>
+
+                        <a class="btn btn-danger"
+                           href="/delete/{{ entry.id }}">
+                            Delete
+                        </a>
+                        <a class="btn btn-info"
+                           href="/update/{{ entry.id }}">
+                            Edit
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/add2" method="post">
+                        <div class="form-group">
+                            <h1> Create your own Pizza</h1>
+                            <input class="form-control" type="text" name="pizza" placeholder="Pizza" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="topping2" cols="100"
+                                      placeholder="topping" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="topping3" cols="100"
+                                      placeholder="topping" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="topping4" cols="100"
+                                      placeholder="topping" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="topping5" cols="100"
+                                      placeholder="topping" required></textarea>
+                        </div>
+                        <button class="btn btn-primary" type="submit">
+                            Add
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Pizza</th>
+                    <th>topping 1</th>
+                    <th>topping 2</th>
+                    <th>topping 3</th>
+                    <th>topping 4</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for entry in entries2 %}
+                <tr>
+                    <td>{{ entry.id2 }}</td>
+                    <td><strong>{{ entry.pizza }}</strong></td>
+                    <td>{{ entry.topping2 }}</td>
+                    <td>{{ entry.topping3 }}</td>
+                    <td>{{ entry.topping4 }}</td>
+                    <td>{{ entry.topping5 }}</td>
+                    <td>
+
+                        <a class="btn btn-danger"
+                           href="/delete2/{{ entry.id2 }}">
+                            Delete
+                        </a>
+                        <a class="btn btn-info"
+                           href="/update2/{{ entry.id2 }}">
+                            Edit
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+

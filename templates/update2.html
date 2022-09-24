@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/update2/{{ entry2.id2 }}" method="post">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="pizza" placeholder="Pizza" value="{{ entry2.pizza }}" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="topping2" cols="100"
+                                      placeholder="Topping" required> {{ entry2.topping2 }} </textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="topping3" cols="100"
+                                      placeholder="Topping" required> {{ entry2.topping3 }} </textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="topping4" cols="100"
+                                      placeholder="Topping" required> {{ entry2.topping4 }} </textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="topping5" cols="100"
+                                      placeholder="Topping" required> {{ entry2.topping5 }} </textarea>
+                        </div>
+                        <button class="btn btn-primary" type="submit">
+                            Update
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
