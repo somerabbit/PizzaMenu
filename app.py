@@ -10,15 +10,20 @@ app = Flask(__name__)
 # Flask-WTF requires an enryption key - the string can be anything
 app.config['SECRET_KEY'] = 'MLXH243GssUWwKdTWS7FDhdwYF56wPj8'
 
+
 # Flask-Bootstrap requires this line
 Bootstrap(app)
 
 # the name of the database; add path if necessary
-db_name = 'topping.db'
+db_name = 'pizza.db'
+
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_name
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+
+#app.config['SQLALCHEMY_DATABASE_URI'] ='postgresql://edgsqtentxumxq:5a8815f18889fcbd5c6755b4a6269ae826215773abb8940af9de4f684a12e371@ec2-34-228-100-83.compute-1.amazonaws.com:5432/d20c58lko8m93n' #set databse URI at sqlite  #'sqlite:///site.db' # 
+
 
 # this variable, db, will be used for all SQLAlchemy commands
 db = SQLAlchemy(app)
@@ -221,7 +226,7 @@ def delete2(id):
 
 
 if __name__ == '__main__':
-    db.create_all()
+    #db.create_all()
     # entry = Entry("testing", "testing")
     # db.session.add(entry)
     # db.session.commit()
